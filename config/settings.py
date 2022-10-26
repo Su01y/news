@@ -1,3 +1,4 @@
+import os
 from datetime import timedelta
 from pathlib import Path
 
@@ -15,6 +16,9 @@ SECRET_KEY = "django-insecure-bqt6@10o$#a=iju8-3*o3329fxaq$t=4md(b43(4s1q2^#7d4d
 DEBUG = True
 
 # ALLOWED_HOSTS = []
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
 # SECRET_KEY = os.environ.get("SECRET_KEY")
 
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "drf_yasg",
     "djoser",
+    "news",
     "rest_framework_simplejwt",
 ]
 
@@ -52,7 +57,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "news.urls"
+ROOT_URLCONF = "config.urls"
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
@@ -84,7 +89,7 @@ SIMPLE_JWT = {
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -97,7 +102,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "news.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database

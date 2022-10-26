@@ -1,17 +1,10 @@
-from django.contrib import admin
-from django.urls import include, path, re_path
-from rest_framework_simplejwt.views import (TokenObtainPairView,
-                                            TokenRefreshView, TokenVerifyView)
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path
 
-from .yasg import urlpatterns as doc_urls
+from .views import add_news_view, list_news_view
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-    path('api/v1/auth/', include('djoser.urls')),
-    re_path(r'^auth/', include('djoser.urls.authtoken')),
-]
+urlpatterns = [path("add news", add_news_view), path("news list", list_news_view)]
 
-urlpatterns += doc_urls
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

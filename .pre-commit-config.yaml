@@ -43,3 +43,4 @@ repos:
           "--ignore-missing-imports",
           "--disallow-untyped-defs",]
         exclude: venv.* | migrations.*
+        # additional_dependencies: ['types-requests']
