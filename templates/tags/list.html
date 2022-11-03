@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>News list</title>
+    <title>Tags</title>
 
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,20 +13,14 @@
      </script>
 </head>
 <body>
-    <h1>News</h1>
-    {% if news %}
-    <ul>
-        {% for new in news %}
-            <li>
-            <div class="col-md-4">
-                {{ new.title }}
-                 <img src="{{ new.photo.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
-            </div>
-            </li>
+    {% if tags %}
+        {% for tag in tags %}
+        <li>
+            <ul><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></ul>
+        </li>
         {% endfor %}
-    </ul>
     {% else %}
-        <p>No News</p>
+        <p>No Tags</p>
     {% endif %}
 </body>
 </html>

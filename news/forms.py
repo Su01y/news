@@ -1,9 +1,15 @@
 from django import forms
 
-from .models import News
+from .models import News, Tags
 
 
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
-        fields = ["title", "photo"]
+        fields = "__all__"
+
+
+class TagsForm(forms.ModelForm):
+    class Meta:
+        model = Tags
+        fields = "__all__"

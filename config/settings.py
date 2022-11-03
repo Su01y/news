@@ -27,7 +27,7 @@ MEDIA_URL = "/media/"
 # # 'DJANGO_ALLOWED_HOSTS' должен быть в виде одной строки с хостами разделенными символом пробела
 # # Для примера: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
-
+# ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "djoser",
     "news",
+    # "debug_toolbar",  # отключить
     "rest_framework_simplejwt",
 ]
 
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",  # отключить
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -130,6 +132,14 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -187,3 +197,5 @@ CORS_ORIGIN_WHITELIST = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# INTERNAL_IPS = ["127.0.0.1"]   # отключить
