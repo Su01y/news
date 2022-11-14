@@ -25,7 +25,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name = "New"
-        ordering = ["-title"]
+        ordering = ["-created_at"]
 
     def get_absolute_url(self) -> Any:
         return reverse("post", kwargs={"slug": self.slug})
