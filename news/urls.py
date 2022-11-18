@@ -23,8 +23,8 @@ from .views import NewsDetailView, NewsListView
 # ]
 
 urlpatterns = [
-    path("api/v1/news/", NewsListView.as_view()),
-    path("api/v1/news/<int:pk>", NewsDetailView.as_view()),
+    path("api/v1/news/", NewsListView.as_view(), name="news-list"),
+    path("api/v1/news/<int:pk>", NewsDetailView.as_view(), name="news-detail"),
     # path('api/v1/views/', NewsByViewsListView.as_view()),
     # path('api/v1/', include(router.urls)),
 ]

@@ -13,7 +13,7 @@ class NewsListView(generics.ListAPIView):
     ordering_fields = ["likes", "views"]
     queryset = News.objects.all()
     filter_backends = [filters.OrderingFilter]
-    ordering = ["-created_at"]
+    ordering = ["created_at"]
 
 
 class NewsDetailView(generics.RetrieveAPIView):

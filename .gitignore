@@ -4,3 +4,4 @@ migrations
 *.pyc
 media
 *.sqlite3
+*cache*
