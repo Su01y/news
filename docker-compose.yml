@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=postgres
   news_web:
     build: .
-    image: epic_knuth
+    image: peaceful_shirley
     command: bash -c "python /usr/src/news/manage.py makemigrations &&
              python /usr/src/news/manage.py migrate --noinput &&
              python /usr/src/news/manage.py runserver 0.0.0.0:8000"
